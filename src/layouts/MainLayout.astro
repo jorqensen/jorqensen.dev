@@ -1,0 +1,17 @@
+---
+import '@fontsource/rubik/variable.css';
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Mathias Jørgensen</title>
+	</head>
+	<body class="font-rubik antialiased h-screen bg-blob text-slate-500 bg-cover selection:bg-slate-500 selection:text-slate-900">
+		<div class="container mx-auto max-w-4xl grid items-center h-full py-12 xs:py-0">
+			<slot/>
+		</div>
+	</body>
+</html>

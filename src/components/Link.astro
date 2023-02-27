@@ -1,0 +1,14 @@
+---
+interface Props {
+    href: string;
+    brand?: 'app' | 'laravel' | 'rust' | 'c#' | 'golang';
+    target?: '_blank' | '_self' | '_parent' | '_top' | 'framename';
+}
+
+const { href, brand = 'app', target = '_self' } = Astro.props;
+---
+
+<a
+    href={href}
+    target={target}
+    class="underline underline-offset-4 decoration-2 decoration-app transition-colors"><slot/></a>

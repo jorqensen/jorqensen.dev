@@ -1,0 +1,34 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import Link from "@/components/Link.astro";
+import Socials from '@/components/Socials.astro';
+import about from "@/about";
+---
+
+<MainLayout>
+	<main class="grid gap-6 shadow-sm md:grid-cols-4 bg-red-10 rounded-xl lg:p-0">
+		<img src="/jorqensen.jpg" alt="pfp" class="object-cover object-center rounded-full h-32 md:rounded-xl md:h-full justify-self-center xs:justify-self-start">
+		<article class="grid grid-cols-1 md:col-span-3 py-4 space-y-4">
+			<header class="relative">
+				<p class="text-sm text-slate-600 font-semibold">Hi, I'm</p>
+				<h1 class="text-4xl font-semibold mb-2">{about.name}</h1>
+				<Socials />
+			</header>
+			<section class="flex flex-col space-y-3 leading-loose">
+				<p>
+					A {about.age} year old developer located in the cold north of <Link href="https://www.google.com/maps/place/Odense/@55.3841674,10.2573954,11z/data=!3m1!4b1!4m6!3m5!1s0x464cd935429724c1:0x3b1e34d53b2ff5ec!8m2!3d55.403756!4d10.40237!16zL20vMDVtd3g">Odense, Denmark</Link>.
+				</p>
+				<p>
+					I currently work as a CSA at <Link href="https://ordbogen.com">Ordbogen A/S.</Link> In my spare time, I like to help fellow developers on the Laravel PHP Discord server,
+					dabble with Rust, C# &amp; Go. If I'm not being productive, I'm probably trying to achieve 100% in various games.
+				</p>
+				<p>
+					If you're interested in hiring me for mid/high scale project, my current answer is a <b>no</b>. However, for code review &amp; guaranteed help/support I can be persuaded.
+				</p>
+				<p>
+					If you want to get in touch with me, the easiest way is via. <Link href="mailto:mathias.jorqensen@gmail.com">e-mail</Link> or social media.
+				</p>
+			</section>
+		</article>
+	</main>
+</MainLayout>
