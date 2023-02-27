@@ -3,8 +3,10 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/tailwind': ^3.0.1
   '@fontsource/rubik': ^4.5.14
+  '@types/canvas-confetti': ^1.6.0
   astro: ^2.0.14
   astro-icon: ^0.8.0
+  canvas-confetti: ^1.6.0
   tailwindcss: ^3.0.24
 
 dependencies:
@@ -12,7 +14,11 @@ dependencies:
   '@fontsource/rubik': 4.5.14
   astro: 2.0.14
   astro-icon: 0.8.0
+  canvas-confetti: 1.6.0
   tailwindcss: 3.2.7
+
+devDependencies:
+  '@types/canvas-confetti': 1.6.0
 
 packages:
 
@@ -683,6 +689,10 @@ packages:
       '@babel/types': 7.21.0
     dev: false
 
+  /@types/canvas-confetti/1.6.0:
+    resolution: {integrity: sha512-Yq6rIccwcco0TLD5SMUrIM7Fk7Fe/C0jmNRxJJCLtAF6gebDkPuUjK5EHedxecm69Pi/aA+It39Ux4OHmFhjRw==}
+    dev: true
+
   /@types/debug/4.1.7:
     resolution: {integrity: sha512-9AonUzyTjXXhEOa0DnqpzZi6VHlqKMswga9EXjpXnnqxwLtdvPPtlO8evrI5D9S6asFRCQ6v+wpiUKbw+vKqyg==}
     dependencies:
@@ -1005,6 +1015,10 @@ packages:
 
   /caniuse-lite/1.0.30001457:
     resolution: {integrity: sha512-SDIV6bgE1aVbK6XyxdURbUE89zY7+k1BBBaOwYwkNCglXlel/E7mELiHC64HQ+W0xSKlqWhV9Wh7iHxUjMs4fA==}
+    dev: false
+
+  /canvas-confetti/1.6.0:
+    resolution: {integrity: sha512-ej+w/m8Jzpv9Z7W7uJZer14Ke8P2ogsjg4ZMGIuq4iqUOqY2Jq8BNW42iGmNfRwREaaEfFIczLuZZiEVSYNHAA==}
     dev: false
 
   /ccount/2.0.1:

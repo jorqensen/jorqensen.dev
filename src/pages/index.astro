@@ -7,7 +7,7 @@ import about from "@/about";
 
 <MainLayout>
 	<main class="grid gap-6 shadow-sm md:grid-cols-4 bg-red-10 rounded-xl lg:p-0">
-		<img src="/jorqensen.jpg" alt="pfp" class="object-cover object-center rounded-full h-32 md:rounded-xl md:h-full justify-self-center xs:justify-self-start">
+		<img src="/jorqensen.jpg" id="profilePicture" alt="pfp" class="object-cover object-center rounded-full h-32 md:rounded-xl md:h-full justify-self-center xs:justify-self-start">
 		<article class="grid grid-cols-1 md:col-span-3 py-4 space-y-4">
 			<header class="relative">
 				<p class="text-sm text-slate-600 font-semibold">Hi, I'm</p>
@@ -32,3 +32,33 @@ import about from "@/about";
 		</article>
 	</main>
 </MainLayout>
+
+<script>
+    import confetti from 'canvas-confetti';
+    import { Konami, randomElementFromArray, randomInRange } from '@/utils';
+
+    const profilePicture = document.getElementById('profilePicture') as HTMLImageElement;
+    const k = new Konami;
+    k.enable();
+
+    document.addEventListener(k.eventName, () => {
+        const duration = 2000;
+        const animationEnd = Date.now() + duration;
+        const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+        profilePicture.src = profilePicture.src.includes('/jorqensen.jpg') ? randomElementFromArray(['/feelsjorqensenman.png', '/real-jorqensen.png']) : '/jorqensen.jpg';
+
+        const interval = setInterval(() => {
+            const timeLeft = animationEnd - Date.now();
+
+            if (timeLeft <= 0) {
+                return clearInterval(interval);
+            }
+
+            const particleCount = 50 * (timeLeft / duration);
+
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+            confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+        }, 250);
+    });
+</script>
