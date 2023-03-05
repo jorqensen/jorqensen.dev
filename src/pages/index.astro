@@ -42,13 +42,10 @@ import about from "@/about";
 
 <script>
     import confetti from 'canvas-confetti';
-    import { Konami, randomElementFromArray, randomInRange } from '@/utils';
-
+    import { konami, randomElementFromArray, randomInRange } from '@/utils/utils';
     const profilePicture = document.getElementById('profilePicture') as HTMLImageElement;
-    const k = new Konami;
-    k.enable();
 
-    document.addEventListener(k.eventName, () => {
+    konami(() => {
         const duration = 2000;
         const animationEnd = Date.now() + duration;
         const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
