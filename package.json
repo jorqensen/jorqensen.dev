@@ -13,10 +13,10 @@
 		"@astrojs/sitemap": "^1.1.0",
 		"@astrojs/tailwind": "^3.0.1",
 		"@fontsource/rubik": "^4.5.14",
-		"astro": "^2.0.14",
+		"astro": "^2.0.17",
 		"astro-icon": "^0.8.0",
 		"canvas-confetti": "^1.6.0",
-		"tailwindcss": "^3.0.24"
+		"tailwindcss": "^3.2.7"
 	},
 	"devDependencies": {
 		"@types/canvas-confetti": "^1.6.0"
