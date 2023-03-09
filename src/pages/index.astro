@@ -43,14 +43,18 @@ import about from "@/about";
 <script>
     import confetti from 'canvas-confetti';
     import { konami, randomElementFromArray, randomInRange } from '@/utils/utils';
+    import about from '@/about';
+
     const profilePicture = document.getElementById('profilePicture') as HTMLImageElement;
+    const name = document.querySelector('header h1');
 
     konami(() => {
         const duration = 2000;
         const animationEnd = Date.now() + duration;
         const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
 
-        profilePicture.src = profilePicture.src.includes('/jorqensen.jpg') ? randomElementFromArray(['/feelsjorqensenman.png', '/real-jorqensen.png']) : '/jorqensen.jpg';
+        profilePicture.src = profilePicture.src.includes('/jorqensen.jpg') ? randomElementFromArray(['/jorqbravo.png', '/darthmaul.png']) : '/jorqensen.jpg';
+        name!.innerHTML = name!.innerHTML.includes(about.name) ? "Mathias Yawn Son" : "Mathias Jørgensen";
 
         const interval: ReturnType<typeof setInterval> = setInterval(() => {
             const timeLeft = animationEnd - Date.now();
