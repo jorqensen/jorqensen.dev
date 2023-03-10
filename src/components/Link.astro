@@ -1,14 +1,16 @@
 ---
 interface Props {
     href: string;
-    brand?: 'app' | 'laravel' | 'rust' | 'c#' | 'golang';
-    target?: '_blank' | '_self' | '_parent' | '_top' | 'framename';
+    brand?: "app" | "laravel" | "rust" | "c#" | "golang";
+    target?: "_blank" | "_self" | "_parent" | "_top" | "framename";
 }
 
-const { href, brand = 'app', target = '_self' } = Astro.props;
+const { href, brand = "app", target = "_self" } = Astro.props;
 ---
 
 <a
     href={href}
     target={target}
-    class="underline underline-offset-4 decoration-2 decoration-app transition-colors"><slot/></a>
+    class="underline decoration-app decoration-2 underline-offset-4 transition-colors"
+    ><slot /></a
+>

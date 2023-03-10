@@ -1,21 +1,26 @@
 ---
-import '@fontsource/rubik/variable.css';
+import "@fontsource/rubik/variable.css";
 ---
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Mathias Jørgensen</title>
 
-        <link rel="preload" as="image" href="jorqensen.jpg">
-        <link rel="preload" as="image" href="jorqbravo.png">
-        <link rel="preload" as="image" href="darthmaul.png">
-	</head>
-	<body class="font-rubik antialiased h-screen bg-blob text-slate-500 bg-cover selection:bg-slate-500 selection:text-slate-900">
-		<div class="container mx-auto max-w-4xl grid items-center h-full py-12 xs:py-0">
-			<slot/>
-		</div>
-	</body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Mathias Jørgensen</title>
+
+        <link rel="preload" as="image" href="jorqensen.jpg" />
+        <link rel="preload" as="image" href="jorqbravo.png" />
+        <link rel="preload" as="image" href="darthmaul.png" />
+    </head>
+    <body
+        class="h-screen bg-blob bg-cover font-rubik text-slate-500 antialiased selection:bg-slate-500 selection:text-slate-900"
+    >
+        <div
+            class="container mx-auto grid h-full max-w-4xl items-center py-12 xs:py-0"
+        >
+            <slot />
+        </div>
+    </body>
 </html>
