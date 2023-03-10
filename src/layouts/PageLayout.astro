@@ -1,0 +1,21 @@
+---
+import '@fontsource/rubik/variable.css';
+
+const { frontmatter } = Astro.props;
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Mathias Jørgensen - {frontmatter.title}</title>
+	</head>
+	<body class="antialiased bg-cover font-rubik bg-blob">
+		<div class="container max-w-4xl mx-auto xs:py-0">
+            <article class="p-6 prose prose-slate prose-headings:text-slate-500 prose-p:text-slate-500 max-w-none rounded-xl prose-a:text-app prose-a:font-normal prose-img:mx-auto prose-img:w-1/2 selection:bg-slate-500 selection:text-slate-900">
+                <slot/>
+            </article>
+		</div>
+	</body>
+</html>

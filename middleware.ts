@@ -1,0 +1,13 @@
+export const config = {
+    matcher: '/',
+};
+
+export default function middleware(request: Request) {
+    const url = new URL(request.url);
+    const agent = request.headers.get('User-Agent');
+
+    if (agent?.includes('Safari')) {
+        url.pathname = '/safari-user-agent';
+        return Response.redirect(url.toString())
+    }
+}
