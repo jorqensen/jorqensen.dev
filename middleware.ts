@@ -4,10 +4,10 @@ export const config = {
 
 export default function middleware(request: Request) {
     const url = new URL(request.url);
-    const agent = request.headers.get('User-Agent');
+    const agent = request.headers.get("User-Agent");
 
-    if (agent?.includes('Safari')) {
-        url.pathname = '/safari-user-agent';
+    if (agent?.includes("Safari") && agent?.includes("Macintosh")) {
+        url.pathname = "/safari-user-agent";
         return Response.redirect(url.toString())
     }
 }
