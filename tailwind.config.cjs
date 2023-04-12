@@ -5,9 +5,6 @@ const colors = require('tailwindcss/colors');
 module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		container: {
-			padding: '1rem',
-		},
 		screens: {
 			'xs': '475px',
 			...defaultTheme.screens,
@@ -15,17 +12,13 @@ module.exports = {
 		extend: {
 			colors: {
 				app: {
-					DEFAULT: colors.green[500],
-					...colors.green
+					DEFAULT: colors.red[500],
+					...colors.red
 				}
 			},
 			fontFamily: {
 				rubik: ['RubikVariable', ...defaultTheme.fontFamily.sans],
-				inter: ['InterVariable', ...defaultTheme.fontFamily.sans],
 			},
-			backgroundImage: {
-				'blob': "url('/blob-scene-haikei.svg')",
-			}
 		},
 	},
 	plugins: [

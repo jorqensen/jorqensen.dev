@@ -3,29 +3,20 @@ import { Icon } from "astro-icon";
 import about from "@/about";
 ---
 
-<div class="relative flex space-x-2 text-slate-600">
-    <a href={about.socials.twitter} class="group hover:text-blue-500">
-        <Icon name="mdi:twitter" class="h-7 w-7" />
+<div class="relative flex space-x-3 text-zinc-700">
+    <a href={about.socials.twitter} class="hover:text-app-600">
+        <Icon name="tabler:brand-twitter" class="h-7 w-7" />
     </a>
-    <a
-        href={about.socials.linkedin}
-        class="transition-colors hover:text-blue-900"
-    >
-        <Icon name="mdi:linkedin" class="h-7 w-7" />
+    <a href={about.socials.linkedin} class="hover:text-app-600">
+        <Icon name="tabler:brand-linkedin" class="h-7 w-7" />
     </a>
-    <a
-        href={about.socials.buymeacoffee}
-        class="transition-colors hover:text-yellow-400"
-    >
-        <Icon name="mdi:beer" class="h-7 w-7" />
+    <a href={about.socials.buymeacoffee} class="hover:text-app-600">
+        <Icon name="tabler:coffee" class="h-7 w-7" />
     </a>
-    <a
-        href={about.socials.github}
-        class="hover: transition-colors hover:text-white"
-    >
-        <Icon name="mdi:github" class="h-7 w-7" />
+    <a href={about.socials.github} class="hover: hover:text-app-600">
+        <Icon name="tabler:brand-github" class="h-7 w-7" />
     </a>
-    <a href={about.socials.email} class="transition-colors hover:text-app">
-        <Icon name="mdi:email-fast" class="h-7 w-7" />
+    <a href={about.socials.email} class="transition-colors hover:text-app-600">
+        <Icon name="tabler:mail" class="h-7 w-7" />
     </a>
 </div>

@@ -1,122 +1,53 @@
 ---
+import { Image } from "astro:assets";
 import MainLayout from "@/layouts/MainLayout.astro";
-import Link from "@/components/Link.astro";
+import jorqensen from "@/assets/jorqensen.jpg";
 import Socials from "@/components/Socials.astro";
+import Link from "@/components/Link.astro";
 import about from "@/about";
 ---
 
 <MainLayout>
-    <main
-        class="bg-red-10 grid gap-6 rounded-xl shadow-sm md:grid-cols-4 lg:p-0"
-    >
-        <img
-            src="/jorqensen.jpg"
-            loading="lazy"
-            decoding="async"
-            id="profilePicture"
-            alt="pfp"
-            class="h-32 justify-self-center rounded-full object-cover object-center xs:justify-self-start md:h-full md:rounded-xl"
-        />
-        <article class="grid grid-cols-1 space-y-4 py-4 md:col-span-3">
-            <header class="relative">
-                <p class="text-sm font-semibold text-slate-600">Hi, I'm</p>
-                <h1 class="mb-2 text-4xl font-semibold">{about.name}</h1>
-                <Socials />
-            </header>
-            <section class="flex flex-col space-y-3 leading-loose">
-                <p>
-                    A {about.age} year old developer located in the cold north of
-                    <Link
-                        href="https://www.google.com/maps/place/Odense/@55.3841674,10.2573954,11z/data=!3m1!4b1!4m6!3m5!1s0x464cd935429724c1:0x3b1e34d53b2ff5ec!8m2!3d55.403756!4d10.40237!16zL20vMDVtd3g"
-                    >
-                        Odense, Denmark
-                    </Link>.
-                </p>
-                <p>
-                    I currently work as a CSA at <Link
-                        href="https://ordbogen.com"
-                    >
-                        Ordbogen A/S.
-                    </Link> In my spare time, I like to help fellow developers on
-                    the Laravel PHP Discord server, dabble with Rust, C# &amp; Go.
-                    If I'm not being productive, I'm probably trying to achieve 100%
-                    in various games.
-                </p>
-                <p>
-                    If you're interested in hiring me for mid/high scale
-                    project, my current answer is a <b>no</b>. However, for code
-                    review &amp; guaranteed help/support I can be persuaded.
-                </p>
-                <p>
-                    If you want to get in touch with me, the easiest way is via. <Link
-                        href={about.socials.email}
-                    >
-                        e-mail
-                    </Link> or social media.
-                </p>
+    <div class="mx-4 rounded-md bg-gradient-to-tl from-zinc-900 to-zinc-950 p-[1px]">
+        <article class="container grid max-w-4xl grid-cols-4 gap-4 rounded-md bg-zinc-950 p-4">
+            <aside class="col-span-4 md:col-span-1">
+                <Image
+                    src={jorqensen.src}
+                    width={300}
+                    height={300}
+                    alt="profile"
+                    class="min-h-full w-1/3 rounded-md object-cover md:w-full"
+                />
+            </aside>
+            <section class="col-span-4 md:col-span-3">
+                <div class="mb-4">
+                    <p class="text-sm font-medium text-zinc-600">Hi, I'm</p>
+                    <h1 class="mb-1 text-4xl font-semibold">Mathias Jørgensen</h1>
+                    <p class="mb-4 text-sm font-medium text-zinc-600">
+                        A 26 year old developer located in the cold north of <Link href={about.location}>
+                            Odense, Denmark
+                        </Link>.
+                    </p>
+                    <Socials />
+                </div>
+                <div class="grid grid-cols-1 space-y-4 leading-loose">
+                    <p>
+                        I currently work as a CSA at <Link href="https://ordbogen.com/en">Ordbogen A/S</Link>. In my
+                        spare time, I like to help fellow developers on the Laravel PHP Discord server, dabble with
+                        Rust, C# & Go. If I'm not being productive, I'm probably trying to achieve 100% in various
+                        games.
+                    </p>
+                    <p>
+                        If you're interested in hiring me for mid/high scale project, my current answer is a no.
+                        However, for code review & guaranteed help/support I can be persuaded.
+                    </p>
+                    <p>
+                        If you want to get in touch with me, the easiest way is via. <Link href={about.email}>
+                            e-mail
+                        </Link> or social media.
+                    </p>
+                </div>
             </section>
         </article>
-    </main>
+    </div>
 </MainLayout>
-
-<script>
-    import confetti from "canvas-confetti";
-    import {
-        konami,
-        randomElementFromArray,
-        randomInRange,
-    } from "@/utils/utils";
-    import about from "@/about";
-
-    const profilePicture = document.getElementById(
-        "profilePicture"
-    ) as HTMLImageElement;
-    const name = document.querySelector("header h1");
-
-    konami(() => {
-        const duration = 2000;
-        const animationEnd = Date.now() + duration;
-        const defaults = {
-            startVelocity: 30,
-            spread: 360,
-            ticks: 60,
-            zIndex: 0,
-        };
-
-        profilePicture.src = profilePicture.src.includes("/jorqensen.jpg")
-            ? randomElementFromArray(["/jorqbravo.png", "/darthmaul.png"])
-            : "/jorqensen.jpg";
-        name!.innerHTML = name!.innerHTML.includes(about.name)
-            ? "Mathias Yawn Son"
-            : "Mathias Jørgensen";
-
-        const interval: ReturnType<typeof setInterval> = setInterval(() => {
-            const timeLeft = animationEnd - Date.now();
-
-            if (timeLeft <= 0) {
-                return clearInterval(interval);
-            }
-
-            const particleCount = 50 * (timeLeft / duration);
-
-            confetti(
-                Object.assign({}, defaults, {
-                    particleCount,
-                    origin: {
-                        x: randomInRange(0.1, 0.3),
-                        y: Math.random() - 0.2,
-                    },
-                })
-            );
-            confetti(
-                Object.assign({}, defaults, {
-                    particleCount,
-                    origin: {
-                        x: randomInRange(0.7, 0.9),
-                        y: Math.random() - 0.2,
-                    },
-                })
-            );
-        }, 250);
-    });
-</script>
