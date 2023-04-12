@@ -8,8 +8,4 @@ interface Props {
 const { href, brand = "app", target = "_self" } = Astro.props;
 ---
 
-<a
-    href={href}
-    target={target}
-    class="text-app-600 transition-colors hover:text-app-500"><slot /></a
->
+<a href={href} target={target} class="text-app-600 transition-colors hover:text-app-500"><slot /></a>

@@ -8,12 +8,8 @@ import about from "@/about";
 ---
 
 <MainLayout>
-    <div
-        class="mx-4 rounded-md bg-gradient-to-tl from-zinc-900 to-zinc-950 p-[1px]"
-    >
-        <article
-            class="container grid max-w-4xl grid-cols-4 gap-4 rounded-md bg-zinc-950 p-4"
-        >
+    <div class="mx-4 rounded-md bg-gradient-to-tl from-zinc-900 to-zinc-950 p-[1px]">
+        <article class="container grid max-w-4xl grid-cols-4 gap-4 rounded-md bg-zinc-950 p-4">
             <aside class="col-span-4 md:col-span-1">
                 <Image
                     src={jorqensen.src}
@@ -26,13 +22,9 @@ import about from "@/about";
             <section class="col-span-4 md:col-span-3">
                 <div class="mb-4">
                     <p class="text-sm font-medium text-zinc-600">Hi, I'm</p>
-                    <h1 class="mb-1 text-4xl font-semibold">
-                        Mathias Jørgensen
-                    </h1>
+                    <h1 class="mb-1 text-4xl font-semibold">Mathias Jørgensen</h1>
                     <p class="mb-4 text-sm font-medium text-zinc-600">
-                        A 26 year old developer located in the cold north of <Link
-                            href={about.location}
-                        >
+                        A 26 year old developer located in the cold north of <Link href={about.location}>
                             Odense, Denmark
                         </Link>.
                     </p>
@@ -40,23 +32,19 @@ import about from "@/about";
                 </div>
                 <div class="grid grid-cols-1 space-y-4 leading-loose">
                     <p>
-                        I currently work as a CSA at <Link
-                            href="https://ordbogen.com/en"
-                        >
-                            Ordbogen A/S
-                        </Link>. In my spare time, I like to help fellow
-                        developers on the Laravel PHP Discord server, dabble
-                        with Rust, C# & Go. If I'm not being productive, I'm
-                        probably trying to achieve 100% in various games.
+                        I currently work as a CSA at <Link href="https://ordbogen.com/en">Ordbogen A/S</Link>. In my
+                        spare time, I like to help fellow developers on the Laravel PHP Discord server, dabble with
+                        Rust, C# & Go. If I'm not being productive, I'm probably trying to achieve 100% in various
+                        games.
                     </p>
                     <p>
-                        If you're interested in hiring me for mid/high scale
-                        project, my current answer is a no. However, for code
-                        review & guaranteed help/support I can be persuaded.
+                        If you're interested in hiring me for mid/high scale project, my current answer is a no.
+                        However, for code review & guaranteed help/support I can be persuaded.
                     </p>
                     <p>
-                        If you want to get in touch with me, the easiest way is
-                        via. <Link href={about.email}>e-mail</Link> or social media.
+                        If you want to get in touch with me, the easiest way is via. <Link href={about.email}>
+                            e-mail
+                        </Link> or social media.
                     </p>
                 </div>
             </section>
