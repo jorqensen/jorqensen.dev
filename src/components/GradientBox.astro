@@ -1,0 +1,46 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { tv, type VariantProps } from "tailwind-variants";
+import { twMerge } from "tailwind-merge";
+
+const componentStyles = tv({
+    slots: {
+        outer: "bg-gradient-to-tl from-zinc-800 to-transparent",
+        inner: "bg-zinc-950 p-4",
+    },
+    variants: {
+        border: {
+            small: {
+                outer: "p-[1px]",
+            },
+            medium: {
+                outer: "p-[2px]",
+            },
+            large: {
+                outer: "p-[4px]",
+            },
+        },
+        rounded: {
+            md: {
+                outer: "rounded-md",
+                inner: "rounded-md",
+            },
+            lg: {
+                outer: "rounded-lg",
+                inner: "rounded-lg",
+            },
+        },
+    },
+});
+
+interface Props extends VariantProps<typeof componentStyles>, HTMLAttributes<"div"> {}
+
+const { class: className, rounded, border } = Astro.props;
+const { outer, inner } = componentStyles({ rounded, border });
+---
+
+<div class={outer()}>
+    <div class={twMerge(inner(), className)}>
+        <slot />
+    </div>
+</div>

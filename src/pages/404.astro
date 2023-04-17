@@ -1,0 +1,14 @@
+---
+import GradientBox from "@/components/GradientBox.astro";
+import Link from "@/components/Link.astro";
+import CenteredLayout from "@/layouts/CenteredLayout.astro";
+---
+
+<CenteredLayout>
+    <GradientBox rounded={"md"} border={"medium"}>
+        <h1 class="mb-2 font-roboto-slab text-2xl font-semibold">Oops, you seem to be lost.</h1>
+        <p>
+            It can happen to the best of us. You should head back <Link href="/">home</Link>.
+        </p>
+    </GradientBox>
+</CenteredLayout>

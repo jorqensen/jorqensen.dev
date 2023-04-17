@@ -1,11 +1,20 @@
 ---
-interface Props {
-    href: string;
-    brand?: "app" | "laravel" | "rust" | "c#" | "golang";
-    target?: "_blank" | "_self" | "_parent" | "_top" | "framename";
-}
+import type { HTMLAttributes } from "astro/types";
+import { tv, type VariantProps } from "tailwind-variants";
+import { twMerge } from "tailwind-merge";
 
-const { href, brand = "app", target = "_self" } = Astro.props;
+const componentStyles = tv({
+    base: "text-app-600 transition-colors hover:text-app-500",
+    variants: {
+        underline: {
+            true: "underline underline-offset-2",
+        },
+    },
+});
+
+interface Props extends VariantProps<typeof componentStyles>, HTMLAttributes<"a"> {}
+
+const { class: className, href, target, underline } = Astro.props;
 ---
 
-<a href={href} target={target} class="text-app-600 transition-colors hover:text-app-500"><slot /></a>
+<a href={href} target={target} class={twMerge(componentStyles({ underline }), className)}><slot /></a>
