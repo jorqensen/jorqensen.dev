@@ -1,14 +1,4 @@
-interface About {
-    name: string;
-    age: () => number;
-    email: string;
-    location: string;
-    socials: {
-        [key: string]: string;
-    },
-}
-
-const about: About = {
+const about = {
     name: "Mathias Jørgensen",
     age: () => {
         const birthday = new Date("04/23/1996");
@@ -21,6 +11,7 @@ const about: About = {
         twitter: "https://twitter.com/jorqensen",
         linkedin: "https://linkedin.com/in/jorqensen",
         buymeacoffee: "https://buymeacoffee.com/jorqensen",
+        spotifyPlaylist: "https://open.spotify.com/playlist/4d4cyqDTURfnb3ZiRowFJK?si=8b70a845a325491b",
         email: "mailto:hello@jorqensen.dev"
     }
 }
