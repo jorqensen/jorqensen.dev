@@ -1,7 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 import { tv, type VariantProps } from "tailwind-variants";
-import { twMerge } from "tailwind-merge";
 
 const componentStyles = tv({
     base: "text-app-600 transition-colors hover:text-app-500",
@@ -17,4 +16,4 @@ interface Props extends VariantProps<typeof componentStyles>, HTMLAttributes<"a"
 const { class: className, href, target, underline } = Astro.props;
 ---
 
-<a href={href} target={target} class={twMerge(componentStyles({ underline }), className)}><slot /></a>
+<a href={href} target={target} class={componentStyles({ underline, className })}><slot /></a>

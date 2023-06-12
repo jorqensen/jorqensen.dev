@@ -2,7 +2,6 @@
 import { Icon } from "astro-icon";
 import type { HTMLAttributes } from "astro/types";
 import { tv, type VariantProps } from "tailwind-variants";
-import { twMerge } from "tailwind-merge";
 
 const componentStyles = tv({
     base: "text-zinc-700 hover:text-app-600",
@@ -15,6 +14,6 @@ interface Props extends VariantProps<typeof componentStyles>, HTMLAttributes<"a"
 const { class: className, href, icon } = Astro.props;
 ---
 
-<a href={href} class={twMerge(componentStyles(), className)}>
+<a href={href} class={componentStyles({ className })}>
     <Icon name={icon} class="h-7 w-7" />
 </a>

@@ -1,7 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 import { tv, type VariantProps } from "tailwind-variants";
-import { twMerge } from "tailwind-merge";
 
 const componentStyles = tv({
     slots: {
@@ -40,7 +39,7 @@ const { outer, inner } = componentStyles({ rounded, border });
 ---
 
 <div class={outer()}>
-    <div class={twMerge(inner(), className)}>
+    <div class={inner({ className })}>
         <slot />
     </div>
 </div>
