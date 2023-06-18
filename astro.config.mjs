@@ -9,6 +9,12 @@ export default defineConfig({
     experimental: {
         assets: true
     },
+    markdown: {
+        shikiConfig: {
+            theme: "github-dark-dimmed",
+            wrap: true
+        }
+    },
     site: 'https://jorqensen.dev',
     integrations: [tailwind(), sitemap()]
 });
