@@ -1,0 +1,61 @@
+---
+import "@fontsource-variable/inter";
+import "@fontsource-variable/lora";
+import type { HTMLAttributes } from "astro/types";
+import { tv, type VariantProps } from "tailwind-variants";
+import Navigation from "@/components/Navigation.astro";
+import Footer from "@/components/Footer.astro";
+import type { CollectionEntry } from "astro:content";
+
+const layout = tv({
+    base: "grid container max-w-4xl",
+    variants: {
+        spacing: {
+            2: "space-y-2",
+            4: "space-y-4",
+            6: "space-y-6",
+            8: "space-y-8",
+            10: "space-y-10",
+        },
+    },
+});
+
+interface Props extends VariantProps<typeof layout>, HTMLAttributes<"main"> {
+    navigation?: boolean;
+    post: CollectionEntry<"blog">;
+}
+
+const { post, spacing, navigation } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+
+        <link rel="icon" type="image/png" href="/favicon.webp" />
+        <link rel="manifest" href="/mmanifest.json" />
+
+        <meta name="og:title" content={post.data.title} />
+        <meta name="og:image" content="https://www.jorqensen.dev/favicon.ico" />
+        <meta name="og:url" content={Astro.url} />
+        <meta name="og:type" content="article" />
+        <meta name="og:article:published_time" content={post.data.published.toISOString()} />
+        <meta name="og:article:author" content={Astro.site} />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@jorqensen" />
+
+        <title>Mathias Jørgensen - {post.data.title}</title>
+    </head>
+    <body class="bg-zinc-200 py-6 font-inter text-zinc-800 antialiased selection:bg-app-500 selection:text-app-700">
+        <main class={layout({ spacing })}>
+            {navigation && <Navigation />}
+            <article class="prose max-w-none prose-headings:font-lora prose-a:text-app-600 hover:prose-a:text-app-500 prose-th:font-inter">
+                <slot />
+            </article>
+            <Footer />
+        </main>
+    </body>
+</html>

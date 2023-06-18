@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { tv, type VariantProps } from "tailwind-variants";
+import { Icon } from "astro-icon";
+
+const styles = tv({
+    base: "grid grid-cols-1 gap-6",
+    variants: {
+        columns: {
+            2: "md:grid-cols-2",
+            3: "md:grid-cols-3",
+        },
+    },
+});
+
+interface Props extends VariantProps<typeof styles>, HTMLAttributes<"div"> {
+    heading: string;
+    icon?: string;
+}
+
+const { class: className, heading, columns, icon } = Astro.props;
+---
+
+<section>
+    <div class="flex space-x-3">
+        {icon && <Icon name={icon} class="h-8 w-8" />}
+        <h2 class="mb-6 font-lora text-2xl font-black">{heading}</h2>
+    </div>
+    <div class={styles({ columns, className })}>
+        <slot />
+    </div>
+</section>

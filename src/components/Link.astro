@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 import { tv, type VariantProps } from "tailwind-variants";
 
-const componentStyles = tv({
+const link = tv({
     base: "text-app-600 transition-colors hover:text-app-500",
     variants: {
         underline: {
@@ -11,9 +11,11 @@ const componentStyles = tv({
     },
 });
 
-interface Props extends VariantProps<typeof componentStyles>, HTMLAttributes<"a"> {}
+interface Props extends VariantProps<typeof link>, HTMLAttributes<"a"> {
+    underline?: boolean;
+}
 
 const { class: className, href, target, underline } = Astro.props;
 ---
 
-<a href={href} target={target} class={componentStyles({ underline, className })}><slot /></a>
+<a href={href} target={target} class={link({ underline, className })}><slot /></a>

@@ -1,0 +1,35 @@
+---
+import Icon from "astro-icon";
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+
+const articles = (
+    await getCollection("blog", ({ data }) => {
+        return data.draft !== true;
+    })
+).sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+---
+
+<Layout title="Blog" heading="Blog" leading="Hear what I have to say" spacing={10} navigation>
+    {
+        articles.length >= 1 && (
+            <ol class="relative space-y-10 border-l border-zinc-800">
+                {articles.map((entry) => (
+                    <li class="ml-8">
+                        <span class="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-zinc-800">
+                            <Icon name={entry.data.icon} class="h-4 w-4 text-white" />
+                        </span>
+                        <a href={"/blog/" + entry.slug} class="underline-offset-2 hover:underline">
+                            <h3 class="mb-1 flex items-center font-lora text-xl font-semibold">{entry.data.title}</h3>
+                        </a>
+                        <time class="mb-2 block text-xs font-normal leading-none">Published on {entry.data.published.toDateString()}</time>
+                        {entry.data.summary && <p class="text-sm">{entry.data.summary}</p>}
+                        <a href={"/blog/" + entry.slug} class="mt-4 flex text-sm text-app-600 hover:text-app-500">
+                            Read more &rarr;
+                        </a>
+                    </li>
+                ))}
+            </ol>
+        )
+    }
+</Layout>

@@ -1,0 +1,74 @@
+---
+import Box from "@/components/Box.astro";
+import Section from "@/components/Section.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="Uses" heading="What am I using?" leading="Everything from hardware to software" spacing={10} navigation>
+    <!-- Hardware -->
+    <Section heading="Hardware" icon="tabler:device-desktop" columns={3}>
+        <Box heading="Microphone" text="small" item={{ url: "#", name: "Baby Bottle" }}>
+            <p>Top quality XLR microphone. It was gifted to me from my former employer.</p>
+        </Box>
+        <Box
+            heading="Mouse"
+            text="small"
+            item={{
+                url: "https://www.logitech.com/en-us/products/mice/mx-master-3s.910-006556.html?searchclick=logi",
+                name: "Logitech MX Master 3S",
+            }}
+        >
+            <p>Comfortable &amp; silent. Couldn't ask more for a mouse, even for gaming.</p>
+        </Box>
+        <Box
+            heading="Keyboard"
+            text="small"
+            item={{
+                url: "https://www.logitech.com/en-us/products/keyboards/mx-keys-for-business.920-010116.html?searchclick=logi",
+                name: "Logitech MX Master 3S",
+            }}
+        >
+            <p>Years of mechanical keyboards have led me here, and I don't regret it at all.</p>
+        </Box>
+    </Section>
+
+    <!-- Software -->
+    <Section heading="Software" icon="tabler:tools" columns={3}>
+        <Box heading="Code Editor" text="small" item={{ url: "https://code.visualstudio.com", name: "Visual Studio Code" }}>
+            <p>Simple, light, flexible &amp; free. The primary reason I'm using VS Code as my primary editor.</p>
+        </Box>
+        <Box heading="Password Manager" text="small" item={{ url: "https://1password.com", name: "1Password" }}>
+            <p>Cheap subscription with a ton of features, helps me keep track of all my logins, licenses and more.</p>
+        </Box>
+        <Box heading="Todo" text="small" item={{ url: "https://rememberthemilk.com", name: "Remember The Milk" }}>
+            <p>Simple UI with a ton of featuers, helps me keep track of my tasks for both work and home.</p>
+        </Box>
+        <Box
+            heading="Terminal"
+            text="small"
+            item={{ url: "https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701", name: "Windows Terminal" }}
+        >
+            <p>The built-in terminal for Windows, combined with Starship &amp; PowerShell.</p>
+        </Box>
+        <Box heading="API Testing" text="small" item={{ url: "https://www.postman.com/", name: "Postman" }}>
+            <p>The good ol' reliable. It works, it's free version is extensive and enough for me.</p>
+        </Box>
+    </Section>
+
+    <!-- FAQ -->
+    <Section heading="Miscellaneous" icon="tabler:adjustments" columns={3}>
+        <Box heading="Operating System" text="small" item={{ url: "https://windows.com", name: "Windows 11" }}>
+            <p class="text-sm">I use Windows 11 for my daily driver, both for gaming &amp; development.</p>
+        </Box>
+        <Box
+            heading="Editor Color Scheme"
+            text="small"
+            item={{ url: "https://marketplace.visualstudio.com/items?itemName=leafphp.leaf-theme", name: "Leaf Theme" }}
+        >
+            <p>I'm currently using the Leaf PHP theme, inspired by Vitesse.</p>
+        </Box>
+        <Box heading="Editor Font" text="small" item={{ url: "https://github.com/microsoft/cascadia-code", name: "Cascadia Code" }}>
+            <p>My favorite font is Cascadia Code by Microsoft, it supports ligatures and italics.</p>
+        </Box>
+    </Section>
+</Layout>

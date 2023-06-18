@@ -1,0 +1,20 @@
+---
+import { Icon } from "astro-icon";
+import type { HTMLAttributes } from "astro/types";
+import { tv, type VariantProps } from "tailwind-variants";
+
+const social = tv({
+    base: "hover:text-app-500 transition-colors",
+});
+
+interface Props extends VariantProps<typeof social>, HTMLAttributes<"a"> {
+    pack: string;
+    name: string;
+}
+
+const { pack, name, href, ...attrs } = Astro.props;
+---
+
+<a class={social()} href={href} {...attrs}>
+    <Icon pack={pack} name={name} class="h-6 w-6" />
+</a>

@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+import jorqensen from "@/assets/jorqensen.jpg";
+---
+
+<nav class="flex place-items-center justify-between text-xs font-semibold">
+    <div id="nav-left" class="flex place-items-center">
+        <a href="/">
+            <Image src={jorqensen} alt="jorqensen" width={30} height={30} class="rounded-lg shadow-sm" />
+        </a>
+    </div>
+    <div id="nav-right" class="flex space-x-6">
+        <a href="/" class="underline-offset-2 hover:underline">Home</a>
+        <a href="/about" class="underline-offset-2 hover:underline">About</a>
+        <a href="/resume" class="underline-offset-2 hover:underline">Resume</a>
+        <a href="/uses" class="underline-offset-2 hover:underline">Uses</a>
+        <a href="/blog" class="underline-offset-2 hover:underline">Blog</a>
+    </div>
+</nav>

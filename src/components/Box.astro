@@ -1,0 +1,42 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { type VariantProps, tv } from "tailwind-variants";
+
+const box = tv({
+    base: "text-base",
+    variants: {
+        bordered: {
+            true: "rounded-lg shadow-sm border border-zinc-300",
+        },
+        padding: {
+            2: "p-2",
+            4: "p-4",
+            6: "p-6",
+        },
+        text: {
+            small: "text-sm",
+        },
+    },
+});
+
+interface Props extends VariantProps<typeof box>, HTMLAttributes<"div"> {
+    heading: string;
+    item?: { url: string; name: string };
+}
+
+const { class: className, bordered, heading, padding, item, text, ...attrs } = Astro.props;
+---
+
+<div class={box({ bordered, padding, text, className })} {...attrs}>
+    <div class="mb-2">
+        <h2 class="font-lora text-lg font-semibold">{heading}</h2>
+        {
+            item && (
+                <a href={item.url} class="text-xs font-semibold text-app-600 transition-colors hover:text-app-500">
+                    {item.name} &rarr;
+                </a>
+            )
+        }
+    </div>
+    <slot />
+</div>

@@ -1,14 +1,9 @@
 ---
-import GradientBox from "@/components/GradientBox.astro";
-import Link from "@/components/Link.astro";
-import CenteredLayout from "@/layouts/CenteredLayout.astro";
+import Layout from "@/layouts/Layout.astro";
 ---
 
-<CenteredLayout>
-    <GradientBox rounded={"md"} border={"medium"}>
-        <h1 class="mb-2 font-roboto-slab text-2xl font-semibold">Oops, you seem to be lost.</h1>
-        <p>
-            It can happen to the best of us. You should head back <Link href="/">home</Link>.
-        </p>
-    </GradientBox>
-</CenteredLayout>
+<Layout title="404" heading="Uh oh" leading="You seem lost at sea sailor, maybe go back?" navigation>
+    <!-- <div class="grid container max-w-3xl space-y-6 place-items-center">
+        <img src={notFound.src} loading="lazy" decoding="async" alt="not found svg">
+    </div> -->
+</Layout>

@@ -1,0 +1,19 @@
+---
+import Social from "./Social.astro";
+import about from "@/about";
+---
+
+<footer
+    class="flex flex-col place-items-center justify-between space-y-3 border border-t-zinc-300 py-6 text-xs font-semibold sm:flex-row sm:space-y-0"
+>
+    <div id="footer-left">
+        <p>&copy; {about.name} &bullet; Created w/ {Astro.generator}</p>
+    </div>
+    <div id="footer-right" class="flex space-x-3">
+        <Social href={about.socials.github} pack="tabler" name="brand-github" />
+        <Social href={about.socials.twitter} pack="tabler" name="brand-twitter" />
+        <Social href={about.socials.linkedin} pack="tabler" name="brand-linkedin" />
+        <Social href={about.socials.buymeacoffee} pack="tabler" name="beer" />
+        <Social href={about.socials.email} pack="tabler" name="mail" />
+    </div>
+</footer>
