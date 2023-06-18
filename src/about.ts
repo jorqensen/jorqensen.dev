@@ -11,6 +11,7 @@ const about = {
         twitter: "https://twitter.com/jorqensen",
         linkedin: "https://linkedin.com/in/jorqensen",
         buymeacoffee: "https://buymeacoffee.com/jorqensen",
+        steam: "https://steamcommunity.com/id/jorqensen",
         spotifyPlaylist: "https://open.spotify.com/playlist/4d4cyqDTURfnb3ZiRowFJK?si=8b70a845a325491b",
         email: "mailto:hello@jorqensen.dev"
     }
