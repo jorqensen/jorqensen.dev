@@ -1,0 +1,15 @@
+{
+	"$schema": "https://json.schemastore.org/web-manifest-combined.json",
+	"name": "Mathias Jørgensen",
+	"start_url": ".",
+	"background_color": "#ffffff",
+	"theme_color": "#ffffff",
+	"description": "CSA & Software Engineer",
+	"icons": [
+		{
+			"src": "favicon.webp",
+			"sizes": "56x56",
+			"type": "image/webp"
+		}
+	]
+}
